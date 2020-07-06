@@ -1,13 +1,15 @@
+import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/screens/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TopSearch extends StatelessWidget {
   final String page;
-  final Function onSearch;
-  const TopSearch(this.page, this.onSearch);
+  const TopSearch(this.page);
 
   @override
   Widget build(BuildContext context) {
+    final searchProvider = Provider.of<PSearch>(context);
     var searchText = TextEditingController();
     return Row(
       children: <Widget>[
@@ -23,8 +25,11 @@ class TopSearch extends StatelessWidget {
                       ))
                   : '';
             },
-            onEditingComplete: onSearch,
             controller: searchText,
+            
+            onEditingComplete: () {
+              searchProvider.filter(searchText.text);
+            },
             decoration: InputDecoration(
               prefixIcon: Icon(
                 Icons.search,

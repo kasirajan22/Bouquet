@@ -1,30 +1,9 @@
 import 'package:flowershop/models/mSearch.dart';
+import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/widgets/TopSearch.dart';
 import 'package:flutter/material.dart';
 import '../models/mSearch.dart';
-
-const List<MSearch> sList = const [
-  MSearch(
-    imageURL: 'assets/images/1.jpg',
-    description: 'aaa Test Search image with filter condition',
-    amount: 50.00,
-  ),
-  MSearch(
-    imageURL: 'assets/images/2.jpg',
-    description: 'bbb Test Search image with filter condition',
-    amount: 50.00,
-  ),
-  MSearch(
-    imageURL: 'assets/images/3.jpg',
-    description: 'ccc Test Search image with filter condition',
-    amount: 50.00,
-  ),
-  MSearch(
-    imageURL: 'assets/images/4.jpg',
-    description: 'ddd Test Search image with filter condition',
-    amount: 50.00,
-  )
-];
+import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -39,6 +18,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //var sList = Provider.of<PSearch>(context, listen: true).items;
+    print('weer');
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
@@ -52,22 +33,24 @@ class _SearchScreenState extends State<SearchScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
               height: 45.0,
               alignment: Alignment.center,
-              child: TopSearch("search", onSerch),
+              child: TopSearch("search"),
             ),
           ),
         ),
       ),
-      body: Container(
-        color: Colors.white,
-        child: ListView.builder(
-          itemCount: sList.length,
-          itemBuilder: (context, i) => Card(
-            elevation: 5,
-            child: ListTile(
-              dense: true,
-              leading: Image.asset(sList[i].imageURL),
-              title: Text(sList[i].description),
-              subtitle: Text(sList[i].amount.toString()),
+      body: Consumer<PSearch>(
+        builder: (context, sList, _) => Container(
+          color: Colors.white,
+          child: ListView.builder(
+            itemCount: sList.items.length,
+            itemBuilder: (context, i) => Card(
+              elevation: 5,
+              child: ListTile(
+                dense: true,
+                leading: Image.asset(sList.items[i].imageURL),
+                title: Text(sList.items[i].description),
+                subtitle: Text(sList.items[i].amount.toString()),
+              ),
             ),
           ),
         ),

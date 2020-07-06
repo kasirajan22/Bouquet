@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                 height: 45.0,
                 alignment: Alignment.center,
-                child: TopSearch("home", onSerch)),
+                child: TopSearch("home")),
           ),
         ),
       ),
