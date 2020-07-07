@@ -19,40 +19,45 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     //var sList = Provider.of<PSearch>(context, listen: true).items;
-    print('weer');
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
         elevation: 0,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(45.0),
-          child: Theme(
-            data: Theme.of(context).copyWith(accentColor: Colors.white),
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-              height: 45.0,
-              alignment: Alignment.center,
-              child: TopSearch("search"),
-            ),
-          ),
-        ),
+        bottom: appbarSearch(context),
       ),
       body: Consumer<PSearch>(
         builder: (context, sList, _) => Container(
           color: Colors.white,
           child: ListView.builder(
-            itemCount: sList.items.length,
-            itemBuilder: (context, i) => Card(
-              elevation: 5,
-              child: ListTile(
-                dense: true,
-                leading: Image.asset(sList.items[i].imageURL),
-                title: Text(sList.items[i].description),
-                subtitle: Text(sList.items[i].amount.toString()),
-              ),
-            ),
-          ),
+              itemCount: sList.items.length,
+              itemBuilder: (context, i) {
+                return Card(
+                  elevation: 5,
+                  child: ListTile(
+                    dense: true,
+                    leading: Image.asset(sList.items[i].imageURL),
+                    title: Text(sList.items[i].description),
+                    subtitle: Text(sList.items[i].amount.toString()),
+                  ),
+                );
+              }),
+        ),
+      ),
+    );
+  }
+
+  PreferredSize appbarSearch(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(45.0),
+      child: Theme(
+        data: Theme.of(context).copyWith(accentColor: Colors.white),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+          height: 45.0,
+          alignment: Alignment.center,
+          child: TopSearch("search"),
         ),
       ),
     );

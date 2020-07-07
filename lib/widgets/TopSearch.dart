@@ -1,5 +1,6 @@
 import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/screens/search_screen.dart';
+import 'package:flowershop/widgets/wFilter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +10,7 @@ class TopSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final searchProvider = Provider.of<PSearch>(context);
+    //final searchProvider = Provider.of<PSearch>(context);
     var searchText = TextEditingController();
     return Row(
       children: <Widget>[
@@ -26,10 +27,12 @@ class TopSearch extends StatelessWidget {
                   : '';
             },
             controller: searchText,
-            
-            onEditingComplete: () {
-              searchProvider.filter(searchText.text);
+            onChanged: (value) {
+              Provider.of<PSearch>(context, listen: false).filter(value);
             },
+            // onEditingComplete: () {
+            //   searchProvider.filter(searchText.text);
+            // },
             decoration: InputDecoration(
               prefixIcon: Icon(
                 Icons.search,
@@ -46,11 +49,24 @@ class TopSearch extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Icon(
-            page == 'home' ? Icons.dashboard : Icons.filter_list,
-            color: Colors.white,
-            size: 30,
-          ),
+          child: page == 'home'
+              ? Icon(
+                  Icons.dashboard,
+                  color: Colors.white,
+                  size: 30,
+                )
+              : IconButton(
+                  icon: Icon(
+                    Icons.filter_list,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => FilterWidget(),
+                    );
+                  },
+                ),
         ),
       ],
     );

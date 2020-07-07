@@ -10,10 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void onSerch(String text) {
-    print(text);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

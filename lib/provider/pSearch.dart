@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/mSearch.dart';
 
 class PSearch extends ChangeNotifier {
-  var _items = [];
-  List<MSearch> _sItems = [
+  List<MSearch> _items = [
     MSearch(
       imageURL: 'assets/images/1.jpg',
       description: 'aaa Test Search image with filter condition',
@@ -26,15 +25,21 @@ class PSearch extends ChangeNotifier {
       amount: 50.00,
     )
   ];
-
+  String _searchString = "";
   List<MSearch> get items {
-    _items = _sItems;
-    return [..._items];
+    if (_searchString.isEmpty) {
+      return [..._items];
+    } else {
+      return [
+        ..._items
+            .where((element) => element.description.contains(_searchString))
+            .toList()
+      ];
+    }
   }
 
-  List<MSearch> filter(String text) {
-    _sItems =
-        _sItems.where((element) => element.description.contains(text)).toList();
+  void filter(String text) {
+    _searchString = text;
     notifyListeners();
   }
 }
