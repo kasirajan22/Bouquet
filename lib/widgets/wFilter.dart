@@ -1,7 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FilterWidget extends StatelessWidget {
+class FilterWidget extends StatefulWidget {
+  @override
+  _FilterWidgetState createState() => _FilterWidgetState();
+}
+
+class _FilterWidgetState extends State<FilterWidget> {
+  bool bestSeller = true;
+
+  bool cheap = false;
+
+  double priceRange = 5;
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -34,8 +45,12 @@ class FilterWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
                 CupertinoSwitch(
-                  value: true,
-                  onChanged: (value) {},
+                  value: bestSeller,
+                  onChanged: (value) {
+                    setState(() {
+                      bestSeller = !bestSeller;
+                    });
+                  },
                   trackColor: Theme.of(context).primaryColor,
                 ),
               ],
@@ -53,8 +68,12 @@ class FilterWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
                 CupertinoSwitch(
-                  value: false,
-                  onChanged: (value) {},
+                  value: cheap,
+                  onChanged: (value) {
+                    setState(() {
+                      cheap = !cheap;
+                    });
+                  },
                   trackColor: Theme.of(context).primaryColor,
                 ),
               ],
@@ -69,16 +88,32 @@ class FilterWidget extends StatelessWidget {
               style: TextStyle(fontSize: 18),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text('5'),
-                CupertinoSlider(
-                  value: 5,
-                  onChanged: (val) {},
-                  min: 1,
-                  max: 7,
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    priceRange.toStringAsFixed(0),
+                    softWrap: true,
+                  ),
                 ),
-                Text('Max'),
+                Expanded(
+                  flex: 6,
+                  child: CupertinoSlider(
+                    value: priceRange,
+                    onChanged: (val) {
+                      setState(() {
+                        priceRange = val;
+                      });
+                    },
+                    min: 1,
+                    max: 7,
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Text('Max'),
+                ),
               ],
             ),
             SizedBox(

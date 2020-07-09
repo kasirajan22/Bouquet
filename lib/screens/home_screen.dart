@@ -1,34 +1,18 @@
 import 'dart:ui';
-
-import 'package:flowershop/screens/search_screen.dart';
 import 'package:flowershop/widgets/TopSearch.dart';
+import 'package:flowershop/widgets/appBarSearch.dart';
+import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
+  static const routeName = '/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
         elevation: 0,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(45.0),
-          child: Theme(
-            data: Theme.of(context).copyWith(accentColor: Colors.white),
-            child: Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-                height: 45.0,
-                alignment: Alignment.center,
-                child: TopSearch("home")),
-          ),
-        ),
+        bottom: appBarSearch(context),
       ),
       drawer: Drawer(),
       body: SingleChildScrollView(
@@ -155,49 +139,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              //color: Colors.black,
-            ),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            title: Text('Business'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.card_giftcard,
-              color: Colors.black,
-            ),
-            title: Text('gift'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.chat,
-              color: Colors.black,
-            ),
-            title: Text('chat'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle,
-              color: Colors.black,
-            ),
-            title: Text('account'),
-          ),
-        ],
+      bottomNavigationBar: BottomNavigation(
         currentIndex: 0,
-        selectedItemColor: Colors.red,
-        onTap: (v) {},
       ),
     );
   }

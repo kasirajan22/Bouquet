@@ -1,25 +1,13 @@
-import 'package:flowershop/models/mSearch.dart';
 import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/widgets/TopSearch.dart';
+import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
-import '../models/mSearch.dart';
 import 'package:provider/provider.dart';
 
-class SearchScreen extends StatefulWidget {
-  @override
-  _SearchScreenState createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  onSerch(String text) {
-    print(text);
-    return;
-  }
-
+class SearchScreen extends StatelessWidget {
+  static const routeName = '/search-screen';
   @override
   Widget build(BuildContext context) {
-    //var sList = Provider.of<PSearch>(context, listen: true).items;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
@@ -43,6 +31,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 );
               }),
         ),
+      ),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 1,
       ),
     );
   }

@@ -31,6 +31,7 @@ dependencies:
   carousel_pro:
   carousel_slider:
   provider:
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:
