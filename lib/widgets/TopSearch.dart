@@ -18,13 +18,13 @@ class TopSearch extends StatelessWidget {
           flex: 10,
           child: TextField(
             onTap: () {
-              page == "home"
-                  ? Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SearchScreen(),
-                      ))
-                  : '';
+              if (page == "home") {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SearchScreen(),
+                    ));
+              }
             },
             controller: searchText,
             onChanged: (value) {

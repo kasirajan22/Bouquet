@@ -1,8 +1,10 @@
+import 'package:flowershop/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { Signup, Login }
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login-screen';
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -68,7 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 alignment: Alignment.centerRight,
                                 child: Text(
                                   'Forget password?',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor),
                                 ),
                               ),
                               SizedBox(
@@ -98,14 +101,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.all(15),
                           onPressed: () {
                             setState(() {
-                              isSignInOptions = !isSignInOptions;
+                              if (isSignInOptions) {
+                                Navigator.pushReplacementNamed(
+                                    context, HomeScreen.routeName);
+                              } else {
+                                isSignInOptions = !isSignInOptions;
+                              }
                             });
                           },
                           child: Text(
                             'Sign In',
                             style: TextStyle(color: Colors.white),
                           ),
-                          color: Colors.red,
+                          color: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
@@ -177,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(
                             'signup?',
                             style: TextStyle(
-                              color: Colors.red,
+                              color: Theme.of(context).primaryColor,
                               fontSize: 15,
                             ),
                           ),

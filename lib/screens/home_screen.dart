@@ -1,13 +1,13 @@
 import 'dart:ui';
-import 'package:flowershop/widgets/TopSearch.dart';
 import 'package:flowershop/widgets/appBarSearch.dart';
 import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const routeName = '/';
+  static const routeName = '/home-screen';
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height * 20;
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -27,6 +27,9 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       'Featured',
                       textAlign: TextAlign.start,
@@ -37,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Container(
-                      height: 150,
+                      height: MediaQuery.of(context).size.height * 0.23,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -77,18 +80,18 @@ class HomeScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Container(
-                      height: 160,
+                      height: MediaQuery.of(context).size.height * 0.20,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          collectionList(
-                              'assets/images/Shop1.jpg', 'Flower Lovers'),
-                          collectionList(
-                              'assets/images/Shop2.jpg', 'Birthday Gift'),
-                          collectionList(
-                              'assets/images/Shop3.jpg', 'Valantine"s Gift'),
-                          collectionList(
-                              'assets/images/Shop1.jpg', 'Flower Lovers'),
+                          collectionList('assets/images/Shop1.jpg',
+                              'Flower Lovers', height),
+                          collectionList('assets/images/Shop2.jpg',
+                              'Birthday Gift', height),
+                          collectionList('assets/images/Shop3.jpg',
+                              'Valantine"s Gift', height),
+                          collectionList('assets/images/Shop1.jpg',
+                              'Flower Lovers', height),
                         ],
                       ),
                     ),
@@ -117,18 +120,18 @@ class HomeScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Container(
-                      height: 160,
+                      height: MediaQuery.of(context).size.height * 0.20,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          collectionList(
-                              'assets/images/Shop1.jpg', 'Flower Lovers'),
-                          collectionList(
-                              'assets/images/Shop2.jpg', 'Birthday Gift'),
-                          collectionList(
-                              'assets/images/Shop3.jpg', 'Valantine"s Gift'),
-                          collectionList(
-                              'assets/images/Shop1.jpg', 'Flower Lovers'),
+                          collectionList('assets/images/Shop1.jpg',
+                              'Flower Lovers', height),
+                          collectionList('assets/images/Shop2.jpg',
+                              'Birthday Gift', height),
+                          collectionList('assets/images/Shop3.jpg',
+                              'Valantine"s Gift', height),
+                          collectionList('assets/images/Shop1.jpg',
+                              'Flower Lovers', height),
                         ],
                       ),
                     ),
@@ -145,7 +148,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Container collectionList(String url, String name) {
+  Container collectionList(String url, String name, double height) {
     return Container(
       width: 130,
       child: Card(
@@ -154,8 +157,8 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               url,
-              fit: BoxFit.fill,
-              height: 160,
+              fit: BoxFit.cover,
+              height: height,
             ),
             Align(
               alignment: Alignment.bottomCenter,

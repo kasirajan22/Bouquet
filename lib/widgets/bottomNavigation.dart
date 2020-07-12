@@ -15,6 +15,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      elevation: 20,
+      
       showSelectedLabels: false,
       showUnselectedLabels: false,
       items: const <BottomNavigationBarItem>[
@@ -50,16 +52,17 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ],
       currentIndex: widget.currentIndex,
-      selectedItemColor: Colors.red,
+      selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: Colors.black,
       onTap: (i) {
         if (widget.currentIndex != i) {
           if (i == 0) {
-            Navigator.of(context).pushNamed(HomeScreen.routeName);
+            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
           } else if (i == 1) {
             Navigator.of(context).pushNamed(SearchScreen.routeName);
-          } else if(i == 2){
-            Navigator.of(context).pushNamed(CategoryScreen.routeName);
+          } else if (i == 2) {
+            Navigator.of(context)
+                .pushReplacementNamed(CategoryScreen.routeName);
           }
         }
       },

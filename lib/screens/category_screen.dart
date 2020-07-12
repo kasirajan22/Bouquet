@@ -1,7 +1,6 @@
 import 'package:flowershop/widgets/appBarSearch.dart';
 import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CategoryScreen extends StatelessWidget {
   static const routeName = "/category-screen";
