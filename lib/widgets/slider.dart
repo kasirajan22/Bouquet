@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WSlider extends StatefulWidget {
+  final bool isFirst;
+
+  const WSlider({this.isFirst});
   @override
   _WSliderState createState() => _WSliderState();
 }
@@ -19,7 +22,7 @@ class _WSliderState extends State<WSlider> {
           child: Column(
             children: [
               CarouselSlider(
-                items: image.items,
+                items: widget.isFirst ? image.items1 : image.items2,
                 options: CarouselOptions(
                     autoPlay: true,
                     enlargeCenterPage: true,
@@ -32,8 +35,10 @@ class _WSliderState extends State<WSlider> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: image.items.map((url) {
-                  int index = image.items.indexOf(url);
+                children:
+                    (widget.isFirst ? image.items1 : image.items2).map((url) {
+                  int index = (widget.isFirst ? image.items1 : image.items2)
+                      .indexOf(url);
                   return Container(
                     width: 8.0,
                     height: 8.0,

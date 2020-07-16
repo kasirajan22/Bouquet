@@ -26,7 +26,7 @@ class _IntroState extends State<Intro> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        WSlider(),
+                        WSlider(isFirst: true),
                         SizedBox(
                           height: 30,
                         ),
@@ -88,7 +88,9 @@ class _IntroState extends State<Intro> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        WSlider(),
+                        WSlider(
+                          isFirst: false,
+                        ),
                         SizedBox(
                           height: 30,
                         ),
