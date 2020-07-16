@@ -1,17 +1,15 @@
-import 'package:flowershop/screens/forgetpwd_screen.dart';
-import 'package:flowershop/screens/home_screen.dart';
-import 'package:flowershop/screens/signup_screen.dart';
+import 'package:flowershop/screens/Login_screen.dart';
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
-enum AuthMode { Signup, Login }
-
-class LoginScreen extends StatefulWidget {
-  static const routeName = '/login-screen';
+class SignUpScreen extends StatefulWidget {
+  static const routeName = '/signup-screen';
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  @override
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool isSignInOptions = false;
   @override
@@ -28,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: isSignInOptions ? 1 : 2,
                 fit: FlexFit.tight,
                 child: Text(
-                  "Sign In",
+                  "Sign Up",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
@@ -43,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Sign in with',
+                            'Sign Up with',
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -68,34 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, ForgetPwdScreen.routeName);
-                                  },
-                                  child: Text(
-                                    'Forget password?',
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Row(
-                                  children: <Widget>[
-                                    Checkbox(
-                                      value: true,
-                                      onChanged: (val) {},
-                                    ),
-                                    Text('Remember password')
-                                  ],
-                                ),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: 'Confirm Password'),
                               ),
                             ],
                           ),
@@ -118,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             });
                           },
                           child: Text(
-                            'Sign In',
+                            'Sign Up',
                             style: TextStyle(color: Colors.white),
                           ),
                           color: Theme.of(context).primaryColor,
@@ -193,10 +166,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           InkWell(
                             onTap: () {
                               Navigator.pushReplacementNamed(
-                                  context, SignUpScreen.routeName);
+                                  context, LoginScreen.routeName);
                             },
                             child: Text(
-                              'signup?',
+                              'signin?',
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 15,

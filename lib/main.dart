@@ -1,13 +1,18 @@
+import 'package:flowershop/provider/pCategory.dart';
 import 'package:flowershop/provider/pHome.dart';
 import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/provider/pSliderImg.dart';
 import 'package:flowershop/screens/Login_screen.dart';
 import 'package:flowershop/screens/category_screen.dart';
 import 'package:flowershop/screens/home_screen.dart';
+import 'package:flowershop/screens/loginAgain_screen.dart';
 import 'package:flowershop/screens/search_screen.dart';
 import 'package:flowershop/widgets/intro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'screens/forgetpwd_screen.dart';
+import 'screens/signup_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (ctx) => PSliderImg(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => PCategory(),
         ),
       ],
       child: Consumer<PHome>(
@@ -58,7 +66,10 @@ class MyApp extends StatelessWidget {
                     : pHome.routeStatus == 'login'
                         ? LoginScreen()
                         : HomeScreen(),
-            //LoginScreen.routeName: (ctx) => TestScreen(),
+            SignUpScreen.routeName: (ctx) => SignUpScreen(),
+            LoginScreen.routeName: (ctx) => LoginScreen(),
+            ForgetPwdScreen.routeName: (ctx) => ForgetPwdScreen(),
+            LoginAgain.routeName:(ctx) => LoginAgain(),
             HomeScreen.routeName: (ctx) => HomeScreen(),
             SearchScreen.routeName: (ctx) => SearchScreen(),
             CategoryScreen.routeName: (ctx) => CategoryScreen(),
@@ -67,9 +78,5 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Map<String, WidgetBuilder> routesMethod(BuildContext context) {
-    return {};
   }
 }
