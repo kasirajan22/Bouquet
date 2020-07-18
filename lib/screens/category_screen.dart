@@ -103,7 +103,7 @@ class CategoryScreen extends StatelessWidget {
                                           onPressed: () {
                                             Navigator.of(context).pushNamed(
                                               SubCategoryScreen.routeName,
-                                              arguments: cat.items[i].id,
+                                              arguments: 2,
                                             );
                                           },
                                           child: Text(

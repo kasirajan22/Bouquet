@@ -67,7 +67,7 @@ class _IntroState extends State<Intro> {
                           padding: const EdgeInsets.symmetric(horizontal: 40),
                           child: Text(
                             'Next',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            style: TextStyle(color: Colors.white),
                           ),
                           color: Theme.of(context).primaryColor,
                         ),
@@ -132,8 +132,7 @@ class _IntroState extends State<Intro> {
                             padding: const EdgeInsets.all(15),
                             child: Text(
                               'Getting Started',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                              style: TextStyle(color: Colors.white),
                             ),
                             color: Theme.of(context).primaryColor,
                           ),
