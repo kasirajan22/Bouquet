@@ -1,4 +1,4 @@
-# flowershop
+# Bouquet
 
 A new Flutter project.
 
@@ -8,7 +8,7 @@ This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
-This is sample project for flower shop e-commerce application design it will be based on Material design. It will work on both android and ios build.
+This is sample project for Bouquet shop e-commerce application design it will be based on Material design. It will work on both android and ios build.
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
