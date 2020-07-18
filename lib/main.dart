@@ -2,11 +2,14 @@ import 'package:flowershop/provider/pCategory.dart';
 import 'package:flowershop/provider/pHome.dart';
 import 'package:flowershop/provider/pSearch.dart';
 import 'package:flowershop/provider/pSliderImg.dart';
+import 'package:flowershop/provider/pSubCategory.dart';
 import 'package:flowershop/screens/Login_screen.dart';
 import 'package:flowershop/screens/category_screen.dart';
 import 'package:flowershop/screens/home_screen.dart';
 import 'package:flowershop/screens/loginAgain_screen.dart';
 import 'package:flowershop/screens/search_screen.dart';
+import 'package:flowershop/screens/settings_screen.dart';
+import 'package:flowershop/screens/subcategory_screen.dart';
 import 'package:flowershop/widgets/intro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +39,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => PCategory(),
         ),
+        ChangeNotifierProvider(
+          create: (ctx) => PSubCategory(),
+        ),
       ],
       child: Consumer<PHome>(
         builder: (context, pHome, child) => MaterialApp(
@@ -58,6 +64,7 @@ class MyApp extends StatelessWidget {
             ),
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
+          debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {
             '/': (ctx) => //pHome.routeStatus == "intro" ? TestScreen() : New(),
@@ -69,10 +76,12 @@ class MyApp extends StatelessWidget {
             SignUpScreen.routeName: (ctx) => SignUpScreen(),
             LoginScreen.routeName: (ctx) => LoginScreen(),
             ForgetPwdScreen.routeName: (ctx) => ForgetPwdScreen(),
-            LoginAgain.routeName:(ctx) => LoginAgain(),
+            LoginAgain.routeName: (ctx) => LoginAgain(),
             HomeScreen.routeName: (ctx) => HomeScreen(),
             SearchScreen.routeName: (ctx) => SearchScreen(),
             CategoryScreen.routeName: (ctx) => CategoryScreen(),
+            SubCategoryScreen.routeName: (ctx) => SubCategoryScreen(),
+            SettingsScreen.routeName: (ctx) => SettingsScreen(),
           },
           //home: HomeScreen(), //MyHomePage(title: 'Flutter Demo Home Page'),
         ),

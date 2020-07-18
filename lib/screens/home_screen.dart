@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flowershop/widgets/appBarSearch.dart';
+import 'package:flowershop/widgets/appDrawer.dart';
 import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         bottom: appBarSearch(context),
       ),
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
@@ -45,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/images/Shop1.jpg'),
+                          image: ExactAssetImage('assets/images/Shop/2.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -84,13 +85,13 @@ class HomeScreen extends StatelessWidget {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          collectionList('assets/images/Shop1.jpg',
+                          collectionList('assets/images/Shop/1.jpg',
                               'Flower Lovers', height),
-                          collectionList('assets/images/Shop2.jpg',
+                          collectionList('assets/images/Shop/3.jpg',
                               'Birthday Gift', height),
-                          collectionList('assets/images/Shop3.jpg',
+                          collectionList('assets/images/Shop/4.jpg',
                               'Valantine"s Gift', height),
-                          collectionList('assets/images/Shop1.jpg',
+                          collectionList('assets/images/Shop/2.jpg',
                               'Flower Lovers', height),
                         ],
                       ),
@@ -124,13 +125,13 @@ class HomeScreen extends StatelessWidget {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          collectionList('assets/images/Shop1.jpg',
+                          collectionList('assets/images/Shop/1.jpg',
                               'Flower Lovers', height),
-                          collectionList('assets/images/Shop2.jpg',
+                          collectionList('assets/images/Shop/2.jpg',
                               'Birthday Gift', height),
-                          collectionList('assets/images/Shop3.jpg',
+                          collectionList('assets/images/Shop/3.jpg',
                               'Valantine"s Gift', height),
-                          collectionList('assets/images/Shop1.jpg',
+                          collectionList('assets/images/Shop/1.jpg',
                               'Flower Lovers', height),
                         ],
                       ),

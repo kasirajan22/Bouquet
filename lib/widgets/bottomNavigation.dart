@@ -1,6 +1,7 @@
 import 'package:flowershop/screens/category_screen.dart';
 import 'package:flowershop/screens/home_screen.dart';
 import 'package:flowershop/screens/search_screen.dart';
+import 'package:flowershop/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -16,7 +17,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       elevation: 20,
-      
       showSelectedLabels: false,
       showUnselectedLabels: false,
       items: const <BottomNavigationBarItem>[
@@ -38,12 +38,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
           title: Text('gift'),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.chat,
-          ),
-          title: Text('chat'),
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(
+        //     Icons.chat,
+        //   ),
+        //   title: Text('chat'),
+        // ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.account_circle,
@@ -63,6 +63,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
           } else if (i == 2) {
             Navigator.of(context)
                 .pushReplacementNamed(CategoryScreen.routeName);
+          } else if (i == 3) {
+            Navigator.of(context)
+                .pushReplacementNamed(SettingsScreen.routeName);
           }
         }
       },

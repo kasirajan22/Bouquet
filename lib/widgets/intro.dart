@@ -104,7 +104,7 @@ class _IntroState extends State<Intro> {
                           height: 10,
                         ),
                         Text(
-                          'Testew bwerg wgt wrhrterrthreht erh hgiewrfrg erughweirughiewr iergrhwe eorgrpoewrg oergr',
+                          'Welcome message for the app entering with new data',
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -118,24 +118,25 @@ class _IntroState extends State<Intro> {
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
-                        RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                        SizedBox(
+                          width: double.infinity,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            onPressed: () {
+                              Provider.of<PHome>(context, listen: false)
+                                  .setPrefBool(true);
+                            },
+                            padding: const EdgeInsets.all(15),
+                            child: Text(
+                              'Getting Started',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            color: Theme.of(context).primaryColor,
                           ),
-                          onPressed: () {
-                            Provider.of<PHome>(context, listen: false)
-                                .setPrefBool(true);
-                          },
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 40,
-                          ),
-                          child: Text(
-                            'Getting Started',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          color: Theme.of(context).primaryColor,
                         ),
                       ],
                     ),

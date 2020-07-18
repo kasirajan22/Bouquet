@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 class PCategory with ChangeNotifier {
   List<MCategory> _items = [
-    MCategory(
-      id: 1,
-      menuName: 'Flowers',
-      description: 'Test description with different text',
-      icon: Icons.local_florist,
-      imageURL: 'assets/images/1.jpg',
-    ),
+    // MCategory(
+    //   id: 1,
+    //   menuName: 'Flowers',
+    //   description: 'Test description with different text',
+    //   icon: Icons.local_florist,
+    //   imageURL: 'assets/images/1.jpg',
+    // ),
     MCategory(
       id: 2,
       menuName: 'Flower',
@@ -18,11 +18,11 @@ class PCategory with ChangeNotifier {
       imageURL: 'assets/images/2.jpg',
     ),
     MCategory(
-      id: 3,
-      menuName: 'Valentine Gift',
+      id: 5,
+      menuName: 'Fathers Day',
       description: 'Test description with different text',
-      icon: Icons.child_care,
-      imageURL: 'assets/images/3.jpg',
+      icon: Icons.account_circle,
+      imageURL: 'assets/images/5.jpg',
     ),
     MCategory(
       id: 4,
@@ -32,12 +32,13 @@ class PCategory with ChangeNotifier {
       imageURL: 'assets/images/4.jpg',
     ),
     MCategory(
-      id: 5,
-      menuName: 'Fathers Day',
+      id: 3,
+      menuName: 'Valentine Gift',
       description: 'Test description with different text',
-      icon: Icons.account_circle,
-      imageURL: 'assets/images/5.jpg',
+      icon: Icons.child_care,
+      imageURL: 'assets/images/3.jpg',
     ),
+
     MCategory(
       id: 6,
       menuName: 'Accessories',

@@ -1,5 +1,7 @@
 import 'package:flowershop/provider/pCategory.dart';
+import 'package:flowershop/screens/subcategory_screen.dart';
 import 'package:flowershop/widgets/appBarSearch.dart';
+import 'package:flowershop/widgets/appDrawer.dart';
 import 'package:flowershop/widgets/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +17,7 @@ class CategoryScreen extends StatelessWidget {
         elevation: 0,
         bottom: appBarSearch(context),
       ),
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 2,
       ),
@@ -98,7 +100,12 @@ class CategoryScreen extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(20),
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.of(context).pushNamed(
+                                              SubCategoryScreen.routeName,
+                                              arguments: cat.items[i].id,
+                                            );
+                                          },
                                           child: Text(
                                             'View',
                                             style: TextStyle(
